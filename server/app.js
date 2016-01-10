@@ -29,6 +29,7 @@ app.use(cors());
 app.use('/', express.static('../client/'));
 app.use('/api', authenticate);
 app.use('/api', require('./routes/api'));
+app.use('*', express.static('../client/'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
