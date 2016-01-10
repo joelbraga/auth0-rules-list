@@ -48,7 +48,6 @@ router.get('/list', function (req, res) {
             if (object instanceof Array) {
               return res.status(200).send(helper(object));
             }
-
             return res.status(500).send('[Code 1] Error getting rules');
           } catch (e) {
             return res.status(500).send('[Code 2] Error getting rules');
@@ -58,7 +57,6 @@ router.get('/list', function (req, res) {
         return res.status(500).send('[Code 3] Error getting rules');
       })
 
-    //TODO Generate Rules Token Dynamically
     .auth(null, null, true, auth0Config.rulesToken);
 });
 
