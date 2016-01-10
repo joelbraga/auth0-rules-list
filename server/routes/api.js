@@ -41,9 +41,9 @@ router.get('/list', function (req, res) {
   request
     .get('https://' + auth0Config.domain + '/api/v2/rules',
       function getRulesFromAuth0(error, response, body) {
-        var object = JSON.parse(body);
-
+        var object;
         if (!error && response.statusCode === 200) {
+          object = JSON.parse(body);
           try {
             if (object instanceof Array) {
               return res.status(200).send(helper(object));
@@ -56,7 +56,6 @@ router.get('/list', function (req, res) {
 
         return res.status(500).send('[Code 3] Error getting rules');
       })
-
     .auth(null, null, true, auth0Config.rulesToken);
 });
 
