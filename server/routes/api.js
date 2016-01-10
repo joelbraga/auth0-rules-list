@@ -9,7 +9,7 @@ function helper(data) {
   var _data = {
     All: [],
   };
-  var regex = /context.clientName *={3} *('|")[A-Za-z0-9]+/g;
+  var regex = /context.clientName *={3} *('|")[A-Za-z0-9-_ ]+/g;
   var regexReplace = /context.clientName *={3} *('|")/g;
 
   var sortedData = data.sort(function sortData(a, b) {
