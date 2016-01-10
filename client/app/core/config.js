@@ -13,13 +13,12 @@
                   jwtInterceptorProvider, auth0Config) {
     $routeProvider
       .when('/', {
-        controller: 'Shell',
-        controllerAs: 'vm',
         templateUrl: 'app/layout/shell.html',
       })
+      .when('/login', {
+        templateUrl: 'app/login/login.html',
+      })
       .when('/profile', {
-        controller: 'Profile',
-        controllerAs: 'vm',
         templateUrl: 'app/profile/profile.html',
       })
       .otherwise({
@@ -55,7 +54,7 @@
             auth.authenticate(store.get('profile'), token);
           }
         } else {
-          $location.path('/');
+          $location.path('/login');
         }
       }
     });

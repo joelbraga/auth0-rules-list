@@ -1,7 +1,4 @@
-<div class="content">
-    <div ng-if="!vm.auth.isAuthenticated">
-        <ng-include src="'app/login/login.html'"></ng-include>
-    </div>
+<div ng-controller="Shell as vm" class="content">
     <div ng-if="vm.auth.isAuthenticated" ng-cloak="ng-cloak">
         <ng-include src="'app/rules/rules.html'"></ng-include>
     </div>

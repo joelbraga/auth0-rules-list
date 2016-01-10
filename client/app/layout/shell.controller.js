@@ -5,11 +5,14 @@
     .module('app')
     .controller('Shell', Shell);
 
-  Shell.$inject = ['auth'];
+  Shell.$inject = ['auth', '$location'];
 
-  function Shell(auth) {
+  function Shell(auth, $location) {
     var vm = this;
     vm.auth = auth;
+    if (!auth.isAuthenticated) {
+      $location.path('/login');
+    }
   }
 
 })();
