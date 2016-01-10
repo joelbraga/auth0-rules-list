@@ -7,5 +7,6 @@
       clientId: '',
       domain: '',
     })
-    .constant('apiUrl', 'http://localhost:3000');
+    .constant('apiUrl', 'http://localhost:3000')
+    .constant('rulesListCloseOthers', false);
 })();

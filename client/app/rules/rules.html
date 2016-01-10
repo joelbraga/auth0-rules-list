@@ -2,8 +2,8 @@
     <button type="button" ng-click="vm.requestList()" class="refresh-button btn btn-default btn-lg">
         <span aria-hidden="true" class="glyphicon glyphicon-refresh">Refresh</span></button>
     <div ng-if="!vm.error">
-        <uib-accordion close-others="false">
-            <uib-accordion-group heading="{{app}}" is-open="true" ng-repeat="(app, rules) in vm.list track by $index">
+        <uib-accordion close-others="{{rulesListCloseOthers}}">
+            <uib-accordion-group heading="{{app}}" ng-repeat="(app, rules) in vm.list track by $index">
                 <div ng-repeat="rule in rules" class="active">
                     <div class="rule-title">{{rule.name}}
                             <span ng-class="{'label-default': rule.stage === null,'label-primary': rule.stage === 'login_success','label-success': rule.stage === 'login_failure','label-info': rule.stage === 'pre_authorize','label-warning': rule.stage === 'user_registration','label-danger': rule.stage === 'user_blocked'}"

@@ -5,13 +5,12 @@
     .module('app')
     .controller('Rules', Rules);
 
-  Rules.$inject = ['auth', '$http', 'apiUrl'];
+  Rules.$inject = ['auth', '$http', 'apiUrl', 'rulesListCloseOthers'];
 
-  function Rules(auth, $http, apiUrl) {
+  function Rules(auth, $http, apiUrl, rulesListCloseOthers) {
     var vm = this;
     vm.auth = auth;
-
-    vm.loading = true;
+    vm.rulesListCloseOthers = rulesListCloseOthers;
     vm.requestList = function () {
       vm.error = false;
       vm.list = undefined;
