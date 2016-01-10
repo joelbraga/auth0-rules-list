@@ -1,13 +1,15 @@
 (function () {
   'use strict';
 
-  function ProfileController(auth) {
+  angular
+    .module('app')
+    .controller('Profile', Profile);
+
+  Profile.$inject = ['auth'];
+
+  function Profile(auth) {
     var vm = this;
     vm.auth = auth;
   }
-
-  angular
-    .module('app')
-    .controller('ProfileCtrl', ProfileController);
 
 })();

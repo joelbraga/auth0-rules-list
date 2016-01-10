@@ -1,7 +1,13 @@
 (function () {
   'use strict';
 
-  function LoginController(auth, store, $location) {
+  angular
+    .module('app')
+    .controller('Login', Login);
+
+  Login.$inject = ['auth', 'store', '$location'];
+
+  function Login(auth, store, $location) {
     var vm = this;
     vm.login = function () {
       auth.signin({}, function (profile, token) {
@@ -14,9 +20,5 @@
       });
     };
   }
-  
-  angular
-    .module('app')
-    .controller('LoginCtrl', LoginController);
 
 })();

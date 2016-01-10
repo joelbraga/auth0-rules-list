@@ -1,7 +1,14 @@
 (function () {
   'use strict';
 
-  function NavbarController(auth, store, $location) {
+
+  angular
+    .module('app')
+    .controller('Navbar', Navbar);
+
+  Navbar.$inject = ['auth', 'store', '$location'];
+
+  function Navbar(auth, store, $location) {
     var vm = this;
 
     vm.isLoggedIn = function () {
@@ -15,9 +22,5 @@
       $location.path('/');
     };
   }
-
-  angular
-    .module('app')
-    .controller('NavbarCtrl', NavbarController);
 
 })();

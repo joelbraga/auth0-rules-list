@@ -3,32 +3,13 @@
 
   angular
     .module('app')
-    .controller('ShellCtrl', Shell);
+    .controller('Shell', Shell);
 
-  Shell.$inject = ['auth', '$http'];
+  Shell.$inject = ['auth'];
 
-  function Shell(auth, $http) {
+  function Shell(auth) {
     var vm = this;
     vm.auth = auth;
-
-    vm.loading = true;
-    vm.requestList = function () {
-      vm.error = false;
-      vm.list = undefined;
-      $http({
-        url: API_URL + '/api/list',
-        method: 'GET',
-      }).then(function (response) {
-        vm.list = response.data;
-        vm.loading = false;
-      }, function (response) {
-        vm.error = true;
-      });
-    };
-
-    if (vm.auth.isAuthenticated) {
-      vm.requestList();
-    }
   }
 
 })();
